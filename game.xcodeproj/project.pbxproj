@@ -137,18 +137,12 @@
 		A38ED6201EA5F4E000BFA27D /* game */ = {
 			isa = PBXGroup;
 			children = (
-				A38ED6241EA5F4E000BFA27D /* AppDelegate.h */,
-				A38ED6251EA5F4E000BFA27D /* AppDelegate.m */,
+				A38ED62A1EA5F4E000BFA27D /* Main.storyboard */,
 				A38ED6271EA5F4E000BFA27D /* ViewController.h */,
 				A38ED6281EA5F4E000BFA27D /* ViewController.m */,
-				A38ED62A1EA5F4E000BFA27D /* Main.storyboard */,
-				A38ED62D1EA5F4E000BFA27D /* Assets.xcassets */,
-				A38ED62F1EA5F4E000BFA27D /* LaunchScreen.storyboard */,
-				A38ED6321EA5F4E000BFA27D /* Info.plist */,
-				A35183251EA6FF4C00D8B4CC /* questions.plist */,
-				A38ED6211EA5F4E000BFA27D /* Supporting Files */,
 				A35183271EA6FFD800D8B4CC /* IdiomModel.h */,
 				A35183281EA6FFD800D8B4CC /* IdiomModel.m */,
+				A38ED6211EA5F4E000BFA27D /* Supporting Files */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -156,6 +150,13 @@
 		A38ED6211EA5F4E000BFA27D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A38ED6221EA5F4E000BFA27D /* main.m */,
+				A38ED62F1EA5F4E000BFA27D /* LaunchScreen.storyboard */,
+				A38ED62D1EA5F4E000BFA27D /* Assets.xcassets */,
+				A38ED6321EA5F4E000BFA27D /* Info.plist */,
+				A35183251EA6FF4C00D8B4CC /* questions.plist */,
+				A38ED6241EA5F4E000BFA27D /* AppDelegate.h */,
+				A38ED6251EA5F4E000BFA27D /* AppDelegate.m */,
 				A32BFC781EB193DA00FF74DA /* bj.png */,
 				A32BFC791EB193DA00FF74DA /* bj@2x.png */,
 				A32BFC7A1EB193DA00FF74DA /* bj@3x.png */,
@@ -193,7 +194,6 @@
 				A37F3BB91EAF6C750057B105 /* 8.jpeg */,
 				A37F3BBA1EAF6C750057B105 /* 9.jpg */,
 				A37F3BBB1EAF6C750057B105 /* 10.jpeg */,
-				A38ED6221EA5F4E000BFA27D /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

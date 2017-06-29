@@ -9,5 +9,4 @@
 #import "IdiomModel.h"
 
 @implementation IdiomModel
-
 @end

@@ -9,8 +9,6 @@
 #import "ViewController.h"
 #import "IdiomModel.h"
 
-
-
 @interface ViewController ()
 
 @property(strong,nonatomic) NSArray * questions;
@@ -25,28 +23,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *reminder;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
--(void)optionsButton;
--(void)answerButton;
--(void)optionsButtonAction:(UIButton *)sender;
--(void)answerButtonAction:(UIButton *)sender;
-
--(void)scoreview;
--(void)roundview;
--(void)reminderview;
--(void)imageview;
-
--(void)nextRound;
--(void)imageTransform;
-
--(void)rightAlert;
--(void)wrongAlert;
-
 - (IBAction)nextButton:(id)sender;
 - (IBAction)bigImage:(id)sender;
 - (IBAction)imageButton:(id)sender;
 
 @end
-
 
 
 // 轮数控制
@@ -68,8 +49,6 @@ NSMutableArray * imageArray;
 
 //大图视图
 UIImageView * bigImage;
-
-
 
 
 @implementation ViewController
@@ -96,7 +75,6 @@ UIImageView * bigImage;
     return _questions;
 }
 
-
 //载入
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -113,7 +91,6 @@ UIImageView * bigImage;
     [self reminderview];
     [self imageview];
 }
-
 
 //选项区按钮
 -(void)optionsButton{
@@ -152,9 +129,6 @@ UIImageView * bigImage;
     buttonNumber=0;
     [choice removeAllObjects];
 }
-
-
-//选项区按钮操作
 -(void)optionsButtonAction:(UIButton *)sender{
    
     buttonNumber+=1;
@@ -193,16 +167,6 @@ UIImageView * bigImage;
     }
 }
 
-
-//答案区按钮操作
--(void)answerButtonAction:(UIButton *)sender{
-    [sender setTitle:@"" forState:UIControlStateNormal];
-    NSInteger a = [answerButtonArray indexOfObject:sender];
-    [self.view addSubview:[choice objectAtIndex:a]];
-    buttonNumber-=1;
-}
-
-
 //答案区按钮
 -(void)answerButton{
    
@@ -229,7 +193,12 @@ UIImageView * bigImage;
         [answerButtonArray addObject:button];
     }
 }
-
+-(void)answerButtonAction:(UIButton *)sender{
+    [sender setTitle:@"" forState:UIControlStateNormal];
+    NSInteger a = [answerButtonArray indexOfObject:sender];
+    [self.view addSubview:[choice objectAtIndex:a]];
+    buttonNumber-=1;
+}
 
 //正确提示
 -(void)rightAlert{
@@ -239,7 +208,6 @@ UIImageView * bigImage;
     [self presentViewController:rightAlert animated:YES completion:nil];
 }
 
-
 //错误提示
 -(void)wrongAlert{
     UIAlertController * wrongAlert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜你错了" preferredStyle:UIAlertControllerStyleAlert];
@@ -248,13 +216,11 @@ UIImageView * bigImage;
      [self presentViewController:wrongAlert animated:YES completion:nil];
 }
 
-
 //分数显示
 -(void)scoreview{
     NSString * scoreNumberString = [NSString stringWithFormat:@"%d",scoreNumber];
     self.score.text=scoreNumberString;
 }
-
 
 //轮数显示
 -(void)roundview{
@@ -263,13 +229,11 @@ UIImageView * bigImage;
     self.round.text=roundNumberString;
 }
 
-
 //提示显示
 -(void)reminderview{
     IdiomModel * model = self.questions[roundNumber-1];
     self.reminder.text=model.title;
 }
-
 
 //图片显示
 -(void)imageview{
@@ -311,14 +275,12 @@ UIImageView * bigImage;
     self.image.contentMode=UIViewContentModeScaleToFill;
 }
 
-
 //下一题按钮
 - (IBAction)nextButton:(id)sender {
-    [self nextRound];
+    if (roundNumber != 10) {
+        [self nextRound];
+    }
 }
-
-
-//下一题操作
 -(void)nextRound{
     
     if (roundNumber>0 && roundNumber<10) {
@@ -331,21 +293,17 @@ UIImageView * bigImage;
     [self roundview];
     [self reminderview];
     [self imageview];
-
 }
-
 
 //大图按钮
 - (IBAction)bigImage:(id)sender {
     [self imageTransform];
 }
 
-
 //图片按钮
 - (IBAction)imageButton:(id)sender {
     [self imageTransform];
 }
-
 
 //图片放大操作
 -(void)imageTransform{
@@ -362,7 +320,6 @@ UIImageView * bigImage;
         bigImage=nil;
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
